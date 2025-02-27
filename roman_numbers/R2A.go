@@ -78,17 +78,13 @@ func sumRomans(roman_numbers []string) int {
 
 	sum := 0
 	for _, roman := range roman_numbers {
-		switch len(roman) {
-		case 1:
-			sum += romans_table[roman[0]]
-		case 2:
-			if verifySubstract(roman[0], roman[1]) {
-				sum += romans_table[roman[1]] - romans_table[roman[0]]
+		for i := 0; i < len(roman); i++ {
+			if i+1 < len(roman) && romans_table[roman[i]] < romans_table[roman[i+1]] {
+				sum += romans_table[roman[i+1]] - romans_table[roman[i]]
+				i++
 			} else {
-				sum += romans_table[roman[0]] + romans_table[roman[1]]
+				sum += romans_table[roman[i]]
 			}
-		case 3:
-			sum += romans_table[roman[0]] * 3
 		}
 	}
 
