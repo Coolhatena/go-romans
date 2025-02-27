@@ -5,7 +5,6 @@ import (
 )
 
 func verifyCanBeConsequent(rm1 byte, rm2 byte) bool {
-	// valid_romans := []byte{'M', 'D', 'C', 'L', 'X', 'V', 'I'}
 	valid_romans := map[byte]int{
 		'M': 0,
 		'D': 1,
