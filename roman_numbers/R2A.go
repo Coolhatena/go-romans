@@ -4,19 +4,19 @@ import (
 	"fmt"
 )
 
-func indexOf(slice []byte, value byte) int {
-	for i, v := range slice {
-		if v == value {
-			return i
-		}
+func verifyCanBeConsequent(rm1 byte, rm2 byte) bool {
+	// valid_romans := []byte{'M', 'D', 'C', 'L', 'X', 'V', 'I'}
+	valid_romans := map[byte]int{
+		'M': 0,
+		'D': 1,
+		'C': 2,
+		'L': 3,
+		'X': 4,
+		'V': 5,
+		'I': 6,
 	}
 
-	return -1
-}
-
-func verifyCanBeConsequent(rm1 byte, rm2 byte) bool {
-	valid_romans := []byte{'M', 'D', 'C', 'L', 'X', 'V', 'I'}
-	return indexOf(valid_romans, rm1) < indexOf(valid_romans, rm2)
+	return valid_romans[rm1] < valid_romans[rm2]
 }
 
 func verifySubstract(rm1 byte, rm2 byte) bool {
