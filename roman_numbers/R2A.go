@@ -110,7 +110,6 @@ func R2A(roman_num string) int {
 		individual_numbers = append(individual_numbers, roman_num[start:index])
 		start = index
 	}
-	fmt.Println(individual_numbers)
 	decimal_number := sumRomans(individual_numbers)
 	return decimal_number
 }
